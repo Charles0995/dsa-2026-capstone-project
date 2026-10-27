@@ -1,7 +1,15 @@
 import { createStore } from '../src/domain/inventory.js';
 
 const store = createStore();
-const event = store.createEvent('Benchmark Event', '2026-12-01');
+
+// Pass an object with the required title, city, and venue properties
+const event = store.createEvent({
+  title: 'Benchmark Event',
+  city: 'Owerri',
+  venue: 'Main Arena',
+  date: '2026-12-01'
+});
+
 const tier = store.addTier(event.id, 'Standard', 1000, 50000);
 
 console.log('Generating 20,000 bookings for benchmark comparison...');
